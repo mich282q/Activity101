@@ -6,25 +6,39 @@ import android.os.CountDownTimer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
+import android.app.ProgressDialog;
+import android.os.CountDownTimer;
 
 
 public class MainActivity extends Activity {
 
+    ProgressDialog progressDialog;
     String tag = "Lifecycle Step";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // requestWindowFeature(Window.FEATURE_NO_TITLE);
+       //requestWindowFeature(Window.FEATURE_NO_TITLE);
         Log.d(tag, "In the onCreate() event");
     }
 
-    public void onStart()
-    {
+    public void onStart() {
         super.onStart();
-        super.onStart();
-        Log.d(tag, "In the onStart() event");
+        Log.d(tag, "Kører onStart()");
+        progressDialog = ProgressDialog.show(this, "Please Wait", "Processing...", true);
+        CountDownTimer timer = new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                progressDialog.dismiss();
+            }
+        }.start();
     }
+
 
     public void onRestart() {
         super.onRestart();
