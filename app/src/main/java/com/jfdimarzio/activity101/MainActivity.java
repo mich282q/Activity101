@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.CountDownTimer;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.Window;
 import android.app.ProgressDialog;
 import android.os.CountDownTimer;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     String tag = "Lifecycle Step";
